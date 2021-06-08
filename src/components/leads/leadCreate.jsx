@@ -5,7 +5,6 @@ import { renderInput, renderSelect, renderTextarea, renderButton } from '../comm
 import { countries } from '../../services/countryServices';
 import { cities } from '../../services/cityServices';
 import { sources } from '../../services/sourceServices';
-import { ratings } from '../../services/ratingServices';
 
 import '../../assets/css/pages/customers.css';  
 
@@ -17,15 +16,14 @@ const CustomerCreate = () => {
         
         <div className="main-content">
             <section className="section">
-                <FormHeader title="Add new customer" link="/customers" />
+                <FormHeader title="Add new lead" link="/leads" />
                 <div className="section-body">
                     <div className="row">
                         <div className="col-12 col-md-12 col-lg-12">
                             <div className="card">
                                 <form className="needs-validation" onSubmit={handleSubmit} noValidate>
                                     <div className="card-body card-grid">
-                                        {renderInput("company_name", "Company Name", inputs.company_name, handleInputChange)}
-                                        {renderInput("contact_name", "Contact Name", inputs.contact_name, handleInputChange)}
+                                        {renderInput("name", "Name", inputs.name_name, handleInputChange)}
                                         {renderInput("email", "Email", inputs.email, handleInputChange, "email")}
                                         {renderInput("phone", "Phone", inputs.phone, handleInputChange)}
                                         {renderInput("designation", "Designation", inputs.designation, handleInputChange)}
@@ -33,8 +31,6 @@ const CustomerCreate = () => {
                                         {renderSelect("city", "City", cities, inputs.city, handleInputChange)}
                                         {renderInput("website", "Website", inputs.website, handleInputChange)}
                                         {renderSelect("source", "Source", sources, inputs.source, handleInputChange)}
-                                        {renderSelect("rating", "Rating", ratings, inputs.rating, handleInputChange)}
-                                        {renderTextarea("address", "Address", inputs.address, handleInputChange)}
                                         {renderTextarea("business_information", "Business Information", inputs.business_information, handleInputChange)}
                                     </div>
                                     <div className="card-footer text-right">

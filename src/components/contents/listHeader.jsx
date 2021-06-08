@@ -55,7 +55,7 @@ const ListHeader = ({title, month, cards }) => {
             </div>
             <div className="card-wrap">
               <div className="card-header">
-                <h4>Total Customers</h4>
+                <h4>Total</h4>
               </div>
               <div className="card-body">59</div>
             </div>
