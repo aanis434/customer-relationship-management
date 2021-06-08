@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = (props) => {
+const FormHeader = (props) => {
     const [heading, setHeading] = useState("");
     const [link, setLink] = useState("");
 
@@ -20,4 +20,4 @@ const Header = (props) => {
     );
 }
 
-export default Header;
+export default FormHeader;

@@ -23,25 +23,17 @@ function App() {
     useScript('../assets/js/scripts.js', 'Scripts');
     useScript('../assets/js/custom.js', 'CustomScript');
 
-    return ( <
-        Fragment >
-        <
-        div className = "App"
-        id = "app" >
-        <
-        main className = "main-wrapper" >
-        <
-        Navbar / >
-        <
-        Sidebar / >
-        <
-        UseRouter / >
-        <
-        Footer / >
-        <
-        /main> <
-        /div> <
-        /Fragment>
+    return (
+        <Fragment >
+            <div className="App" id="app" >
+                <main className="main-wrapper" >
+                    <Navbar / >
+                    <Sidebar / >
+                    <UseRouter / >
+                    <Footer / >
+                </main> 
+            </div> 
+        </Fragment>
     );
 }
 

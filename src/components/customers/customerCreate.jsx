@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../layouts/header';
+import FormHeader from '../contents/formHeader';
 import useForm from "../../hooks/useform";
 import { renderInput, renderSelect, renderTextarea, renderButton } from '../common/form';
 import { countries } from '../../services/countryServices';
@@ -7,15 +7,17 @@ import { cities } from '../../services/cityServices';
 import { sources } from '../../services/sourceServices';
 import { ranks } from '../../services/rankServices';
 
+import '../../assets/css/pages/customers.css';  
+
 const CustomerCreate = () => {
     
-    const {inputs, handleInputChange, handleSubmit} = useForm();
+    const { inputs, handleInputChange, handleSubmit } = useForm();
 
     return (
         
         <div className="main-content">
             <section className="section">
-                <Header title="Add new customer" link="/customers" />
+                <FormHeader title="Add new customer" link="/customers" />
                 <div className="section-body">
                     <div className="row">
                         <div className="col-12 col-md-12 col-lg-12">
