@@ -24,7 +24,7 @@ const CustomerCreate = () => {
                             <div className="card">
                                 <form className="needs-validation" onSubmit={handleSubmit} noValidate>
                                     <div className="card-body card-grid">
-                                        {renderInput("company_name", "Company Name", inputs.company_name, handleInputChange)}
+                                        {renderInput("company", "Company Name", inputs.company, handleInputChange)}
                                         {renderInput("contact_name", "Contact Name", inputs.contact_name, handleInputChange)}
                                         {renderInput("email", "Email", inputs.email, handleInputChange, "email")}
                                         {renderInput("phone", "Phone", inputs.phone, handleInputChange)}
