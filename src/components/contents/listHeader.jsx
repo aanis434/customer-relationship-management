@@ -1,5 +1,5 @@
 
-const ListHeader = ({title, month, cards }) => {
+const ListHeader = ({title, month, cards, totalCount }) => {
     return (        
         <div className="row">
         <div className="col-lg-12 col-md-12 col-sm-12">
@@ -55,9 +55,9 @@ const ListHeader = ({title, month, cards }) => {
             </div>
             <div className="card-wrap">
               <div className="card-header">
-                <h4>Total Customers</h4>
+                <h4>Total { title }</h4>
               </div>
-              <div className="card-body">59</div>
+              <div className="card-body">{totalCount}</div>
             </div>
           </div>
         </div>
