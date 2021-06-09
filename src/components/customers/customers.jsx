@@ -1,13 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import ListHeader from '../contents/listHeader';
 import ListBody from '../contents/listBody';
 import { getCustomers } from './../../services/customerService';
 import SwitchButton from './../common/switchButton';
+import { Paginate } from '../../utils/paginate';
 
 const Customers = () => {
 
-  const customers = getCustomers();
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 2;
+ 
+  useEffect(() => {
+    const customers = getCustomers();
+    setData(customers);
+    
+  }, []);
+
+  const handlePageChange = page => {
+    setCurrentPage(page);
+  };
+
+  console.log(data);
 
   const cards = [
     {
@@ -59,12 +74,20 @@ const Customers = () => {
       )
     }
   ];
-    
+
+  const getPageData = () => {
+    let filtered = data;
+    const customers = Paginate(filtered, currentPage, pageSize);
+    return { totalCount: filtered.length, data:customers };
+  };
+
+  const { totalCount, data: customers } = getPageData();
+  
     return (
         <div className="main-content">
         <section className="section">
          
-          <ListHeader title="Customer" month="August" cards={cards} />          
+          <ListHeader title="Customer" month="August" cards={cards} totalCount={totalCount} />          
 
           <div className="section-body">
             <span className="section-title"></span>
@@ -76,6 +99,10 @@ const Customers = () => {
             <ListBody
               data={customers}
               columns={columns}
+              totalCount={totalCount}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
             />
             
           </div>

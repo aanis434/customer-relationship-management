@@ -1,6 +1,7 @@
+import Pagination from '../common/pagination';
 import Table from '../common/table';
 
-const ListBody = ({ data, columns }) => {
+const ListBody = ({ data, columns, totalCount, ...rest }) => {
     return (
         <div className="row">
             <div className="col-12 col-md-12 col-lg-12">
@@ -28,26 +29,12 @@ const ListBody = ({ data, columns }) => {
                             />
                         </div>
                     </div>
+
                     <div className="card-footer text-right">
-                        <nav className="d-inline-block">
-                            <ul className="pagination mb-0">
-                                <li className="page-item disabled">
-                                    <a className="page-link" tabindex="-1"><i className="fas fa-chevron-left"></i></a>
-                                </li>
-                                <li className="page-item active">
-                                    <a className="page-link">1 <span className="sr-only">(current)</span></a>
-                                </li>
-                                <li className="page-item">
-                                    <a className="page-link">2</a>
-                                </li>
-                                <li className="page-item">
-                                    <a className="page-link">3</a>
-                                </li>
-                                <li className="page-item">
-                                    <a className="page-link"><i className="fas fa-chevron-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <Pagination
+                            itemCount={totalCount}
+                            {...rest}            
+                        />
                     </div>
                 </div>
             </div>

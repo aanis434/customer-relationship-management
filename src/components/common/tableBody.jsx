@@ -16,7 +16,7 @@ const TableBody = ({ data, columns }) => {
         <tbody>
             {data.map((item, index) => 
                 <tr key={item._id}>
-                    <td>{ index + 1 }</td>
+                    <td>{ index+1 }</td>
                     {columns.map(column =>
                         <td key={createKey(item, column)}>
                             {renderCell(item, column)}
