@@ -18,6 +18,9 @@ function Sidebar(params) {
             <li>
               <NavLink className="nav-link" to="/customers"><i className="fas fa-users"></i> <span>Customers</span></NavLink>
             </li>
+            <li>
+              <NavLink className="nav-link" to="/leads"><i className="fas fa-check"></i> <span>Leads</span></NavLink>
+            </li>
             <li className="nav-item dropdown">
               <a className="nav-link has-dropdown"><i className="fas fa-fire"></i><span>Multiple Menu</span></a>
               <ul className="dropdown-menu">
