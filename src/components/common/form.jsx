@@ -2,7 +2,7 @@ import Input from './input';
 import Select from './select';
 import Textarea from './textarea';
 
-export function renderInput(name, label, data, handleChange, type="text") {
+export function renderInput(name, label, data, errors, handleChange, type = "text") {
     return (
         <Input
             type={type}
@@ -10,12 +10,12 @@ export function renderInput(name, label, data, handleChange, type="text") {
             label={label}
             value={data}
             onChange={handleChange}
-            // error = {errors[name]}
+            error = {errors[name]}
         />
     );
 }
 
-export function renderSelect(name, label, options, data, handleChange) {
+export function renderSelect(name, label, options, data, errors, handleChange) {
     return (
         <Select
             name={name}
@@ -23,27 +23,27 @@ export function renderSelect(name, label, options, data, handleChange) {
             value={data}
             options = {options}
             onChange={handleChange}
-            // error = {errors[name]}
+            error = {errors[name]}
         />
     );
 }
 
-export function renderTextarea(name, label, data, handleChange) {
+export function renderTextarea(name, label, data, errors, handleChange) {
     return (
         <Textarea
             name={name}
             label={label}
             value={data}
             onChange={handleChange}
-            // error = {errors[name]}
+            error = {errors[name]}
         />
     );
 }
 
-export function renderButton(label){
+export function renderButton(label, validate){
     return (
         <button
-        // disabled={this.validate()}
+        disabled={validate()}
         type="submit"
         className="btn btn-primary">{label}</button>
     );

@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './components/dashboard';
 import Customers from './components/customers/customers';
 import CustomerCreate from './components/customers/customerCreate';
-import LeadsList from './components/leads/leadslist';
+import LeadsList from './components/leads/leadsList';
 import LeadCreate from './components/leads/leadCreate';
 
 const UseRouter = () => {
