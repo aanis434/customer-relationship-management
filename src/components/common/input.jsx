@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Input = ({name, label, error, ...rest}) => {
+const Input = ({ name, label, value, error, ...rest }) => {
+
+    let className = "form-control ";
+    if(value)
+        className +=  error ? 'is-invalid' : 'is-valid';
+
     return (
         <div className="form-group">
             <label htmlFor={name}>{label}</label>
@@ -8,7 +13,7 @@ const Input = ({name, label, error, ...rest}) => {
                 {...rest}
                 id={name}
                 name={name}
-                className="form-control" />
+                className={className}/>
             {error && <div className="invalid-feedback">{ error }</div>}
         </div>
      );
