@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './components/dashboard';
 import Customers from './components/customers/customers';
 import CustomerCreate from './components/customers/customerCreate';
-import LeadsList from './components/leads/leadsList';
+import Leads from './components/leads/leads';
 import LeadCreate from './components/leads/leadCreate';
 
 const UseRouter = () => {
@@ -22,7 +22,7 @@ const UseRouter = () => {
               path="/leads"
               render={({ match: { url } }) => (
                 <>
-                  <Route path={ `${url}/`} component={LeadsList} exact/>
+                  <Route path={ `${url}/`} component={Leads} exact/>
                   <Route path={ `${url}/create`} component={LeadCreate}/>
                 </>
               )}

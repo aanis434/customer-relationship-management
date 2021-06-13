@@ -1,4 +1,5 @@
 import React from 'react';
+import Joi from 'joi-browser';
 import FormHeader from '../contents/formHeader';
 import useForm from "../../hooks/useform";
 import { renderInput, renderSelect, renderTextarea, renderButton } from '../common/form';
@@ -10,7 +11,21 @@ import '../../assets/css/pages/customers.css';
 
 const CustomerCreate = () => {
     
-    const { inputs, handleInputChange, handleSubmit } = useForm();
+    const schema = {
+        _id: Joi.string(),
+        name: Joi.string().min(2).max(115).required().label("Contact Name"),
+        email: Joi.string().email().label("Email"),
+        phone: Joi.string().required().label("Phone"),
+        designation: Joi.string().label("Designation"),
+        country: Joi.string().label("Country"),
+        city: Joi.string().label("City"),
+        website: Joi.string().label("Website"),
+        source: Joi.string().label("Source"),
+        address: Joi.string().label("Address"),
+        business_information: Joi.string().label("Business Information"),
+    }
+
+    const { inputs, errors, validate, handleInputChange, handleSubmit } = useForm(schema);
 
     return (
         
@@ -23,18 +38,22 @@ const CustomerCreate = () => {
                             <div className="card">
                                 <form className="needs-validation" onSubmit={handleSubmit} noValidate>
                                     <div className="card-body card-grid">
-                                        {renderInput("name", "Name", inputs.name_name, handleInputChange)}
-                                        {renderInput("email", "Email", inputs.email, handleInputChange, "email")}
-                                        {renderInput("phone", "Phone", inputs.phone, handleInputChange)}
-                                        {renderInput("designation", "Designation", inputs.designation, handleInputChange)}
-                                        {renderSelect("country", "Country", countries, inputs.country, handleInputChange)}
-                                        {renderSelect("city", "City", cities, inputs.city, handleInputChange)}
-                                        {renderInput("website", "Website", inputs.website, handleInputChange)}
-                                        {renderSelect("source", "Source", sources, inputs.source, handleInputChange)}
-                                        {renderTextarea("business_information", "Business Information", inputs.business_information, handleInputChange)}
+                                        {renderInput("name", "Name", inputs.name_name,
+                                        errors, handleInputChange)}
+                                        {renderInput("email", "Email", inputs.email, 
+                                        errors,handleInputChange, "email")}
+                                        {renderInput("phone", "Phone", inputs.phone, 
+                                        errors,handleInputChange)}
+                                        {renderInput("designation", "Designation", inputs.designation, errors,handleInputChange)}
+                                        {renderSelect("country", "Country", countries, inputs.country, errors,handleInputChange)}
+                                        {renderSelect("city", "City", cities, inputs.city, errors,handleInputChange)}
+                                        {renderInput("website", "Website", inputs.website, 
+                                        errors,handleInputChange)}
+                                        {renderSelect("source", "Source", sources, inputs.source, errors,handleInputChange)}
+                                        {renderTextarea("business_information", "Business Information", inputs.business_information, errors,handleInputChange)}
                                     </div>
                                     <div className="card-footer text-right">
-                                        {renderButton("Submit")}
+                                        {renderButton("Submit",validate)}
                                     </div>
                                 </form>
                             </div>
