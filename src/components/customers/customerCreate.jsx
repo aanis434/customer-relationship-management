@@ -17,7 +17,10 @@ const CustomerCreate = () => {
         company: Joi.string().min(3).required().label("Company Name"),
         contact_name: Joi.string().min(2).max(115).required().label("Contact Name"),
         email: Joi.string().email().label("Email"),
-        phone: Joi.string().required().label("Phone"),
+        phone: Joi.string()
+            .regex(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/)
+            .required()
+            .label('Phone'),
         designation: Joi.string().label("Designation"),
         country: Joi.string().label("Country"),
         city: Joi.string().label("City"),
